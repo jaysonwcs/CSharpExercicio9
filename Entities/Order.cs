@@ -9,8 +9,16 @@ namespace CSharpExercicio9.Entities
     {
         public DateTime Time { get; private set; }
         public OrderStatus Status { get; private set; }
-        public List<OrderItem> Items { get; private set; }
+        public List<OrderItem> Items { get; private set; } = new List<OrderItem>();
         public Customer Customer { get; private set; }
+
+
+        public Order(OrderStatus status, Customer customer)
+        {
+            Status = status;
+            Customer = customer;
+            Time = DateTime.Now;
+        }
 
 
         public void AddItem(OrderItem item)
@@ -41,7 +49,7 @@ namespace CSharpExercicio9.Entities
             StringBuilder builder = new StringBuilder();
 
             builder.AppendLine("ORDER SUMMARY:");
-            builder.AppendLine($"Order time: {Time.ToString("dd/MM/yyyy HH/mm/ss")}");
+            builder.AppendLine($"Order time: {Time.ToString("dd/MM/yyyy HH:mm:ss")}");
             builder.AppendLine($"Order status: {Status.ToString()}");
             builder.AppendLine(Customer.ToString());
             builder.AppendLine("Order items:");
