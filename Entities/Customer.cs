@@ -11,6 +11,14 @@ namespace CSharpExercicio9.Entities
         public DateTime BirthDate { get; private set; }
 
 
+        public Customer(string name, string email, DateTime birthDate)
+        {
+            Name = name;
+            Email = email;
+            BirthDate = birthDate;
+        }
+
+
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
